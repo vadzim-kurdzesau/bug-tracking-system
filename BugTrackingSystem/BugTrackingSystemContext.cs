@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using BugTrackingSystem.Models;
 
 namespace BugTrackingSystem
 {
     public class BugTrackingSystemContext : DbContext
     {
+        public BugTrackingSystemContext(string connectionString) 
+            : base(connectionString)
+        {
+        }
+
         public DbSet<Project> Projects { get; set; }
 
         public DbSet<Developer> Developers { get; set; }
