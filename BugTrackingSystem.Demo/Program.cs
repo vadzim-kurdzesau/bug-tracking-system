@@ -1,4 +1,5 @@
 ﻿using System;
+using BugTrackingSystem.Models;
 
 namespace BugTrackingSystem.Demo
 {
@@ -6,7 +7,11 @@ namespace BugTrackingSystem.Demo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ConfigurationManager configuration = new ConfigurationManager();
+
+            using BugTrackingSystemContext dataBase = new BugTrackingSystemContext(configuration.ConnectionString);
+
+            dataBase.SaveChanges();
         }
     }
 }
