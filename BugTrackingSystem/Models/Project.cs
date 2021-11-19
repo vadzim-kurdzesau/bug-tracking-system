@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTrackingSystem.Models
@@ -14,5 +15,10 @@ namespace BugTrackingSystem.Models
 
         [Column("start_date")]
         public DateTime StartDate { get; set; }
+
+        public ICollection<Developer> Developers { get; set; }
+
+        public Project()
+            => this.Developers = new List<Developer>();
     }
 }
