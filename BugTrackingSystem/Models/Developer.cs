@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTrackingSystem.Models
 {
@@ -19,5 +20,10 @@ namespace BugTrackingSystem.Models
 
         [Column("phone")]
         public string Phone { get; set; }
+
+        public ICollection<Project> Projects { get; set; }
+
+        public Developer()
+            => this.Projects = new List<Project>();
     }
 }
