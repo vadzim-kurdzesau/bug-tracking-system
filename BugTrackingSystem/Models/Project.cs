@@ -18,7 +18,12 @@ namespace BugTrackingSystem.Models
 
         public ICollection<Developer> Developers { get; set; }
 
+        public ICollection<Bug> Bugs { get; set; }
+
         public Project()
-            => this.Developers = new List<Developer>();
+        {
+            this.Developers = new List<Developer>();
+            this.Bugs = new List<Bug>();
+        }
     }
 }

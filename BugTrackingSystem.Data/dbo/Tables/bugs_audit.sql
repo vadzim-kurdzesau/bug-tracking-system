@@ -6,7 +6,7 @@
     [bug_type_id]       INT            NOT NULL,
     [bug_status_id]     INT            NOT NULL,
     [project_id]        INT            NOT NULL,
-    [developer_id]      INT            NOT NULL,
+    [developer_id]      INT            NULL,
     [developer_message] NVARCHAR (100) NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
     CONSTRAINT [FK_bugs_audit_to_bug_statuses] FOREIGN KEY ([bug_status_id]) REFERENCES [dbo].[bug_statuses] ([id]),
