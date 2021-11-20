@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTrackingSystem.Models
 {
-    [Table("dbo.bug_history")]
-    public class BugHistoryRecord
+    [Table("dbo.bugs_audit")]
+    public class BugsAuditRecord
     {
         [Column("id")]
         public int Id { get; set; }
@@ -18,14 +18,26 @@ namespace BugTrackingSystem.Models
         [Column("bug_type_id")]
         public int BugTypeId { get; set; }
 
+        [ForeignKey("BugTypeId")]
+        public BugType BugType { get; set; }
+
         [Column("bug_status_id")]
         public int BugStatusId { get; set; }
+
+        [ForeignKey("BugStatusId")]
+        public BugStatus BugStatus { get; set; }
 
         [Column("project_id")]
         public int ProjectId { get; set; }
 
+        [ForeignKey("ProjectId")]
+        public Project Project { get; set; }
+
         [Column("developer_id")]
         public int? DeveloperId { get; set; }
+
+        [ForeignKey("DeveloperId")]
+        public Developer Developer { get; set; }
 
         [Column("developer_message")]
         public string DeveloperMessage { get; set; }

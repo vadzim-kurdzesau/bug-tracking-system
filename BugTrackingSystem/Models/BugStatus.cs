@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTrackingSystem.Models
 {
@@ -13,5 +14,10 @@ namespace BugTrackingSystem.Models
 
         [Column("description")]
         public string Description { get; set; }
+
+        public ICollection<Bug> Bugs { get; set; }
+
+        public BugStatus()
+            => this.Bugs = new List<Bug>();
     }
 }

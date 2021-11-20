@@ -20,11 +20,10 @@ namespace BugTrackingSystem
 
         public DbSet<Bug> Bugs { get; set; }
 
-        public DbSet<BugHistoryRecord> BugHistory { get; set; }
+        public DbSet<BugsAuditRecord> BugHistory { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Project>().HasMany(p => p.Developers)
                 .WithMany(d => d.Projects)
                 .Map(c =>
@@ -33,6 +32,18 @@ namespace BugTrackingSystem
                     c.MapRightKey("developer_id");
                     c.ToTable("projects_developers");
                 });
+
+            modelBuilder.Entity<Project>().HasMany(p => p.Bugs)
+                .WithRequired(b => b.Project);
+
+            modelBuilder.Entity<BugStatus>().HasMany(s => s.Bugs)
+                .WithRequired(b => b.BugStatus);
+
+            modelBuilder.Entity<BugType>().HasMany(t => t.Bugs)
+                .WithRequired(b => b.BugType);
+
+            modelBuilder.Entity<Developer>().HasMany(d => d.Bugs)
+                .WithOptional(b => b.Developer);
         }
     }
 }
