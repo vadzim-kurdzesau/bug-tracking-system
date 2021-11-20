@@ -8,13 +8,6 @@ namespace BugTrackingSystem.Services
 {
     public static class BugsService
     {
-        public static Bug AddBug(this BugTrackingSystemContext context, Bug bug)
-        {
-            ValidateBug(bug);
-            context.Bugs.Add(bug);
-            return bug;
-        }
-
         public static Bug AssignDeveloper(this Bug bug, Developer developer)
         {
             ValidateBug(bug);
