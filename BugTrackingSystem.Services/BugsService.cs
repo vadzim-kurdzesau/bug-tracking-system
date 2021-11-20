@@ -23,6 +23,23 @@ namespace BugTrackingSystem.Services
             return bug;
         }
 
+        public static IEnumerable<Bug> GetAvailableUnassignedBugsForDeveloper(this Developer developer,
+            BugTrackingSystemContext context)
+        {
+            ValidateContext(context);
+
+            var unassignedBugs = from b
+                                               in context.Bugs
+                                               where b.Project.Id == developer.Id
+                                               && b.Developer == null
+                                               select b;
+
+            foreach (var bug in unassignedBugs)
+            {
+                yield return bug;
+            }
+        }
+
         public static IEnumerable<Bug> GetUnassignedBugs(this BugTrackingSystemContext context)
         {
             ValidateContext(context);
