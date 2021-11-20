@@ -38,6 +38,18 @@ namespace BugTrackingSystem.Services
             }
         }
 
+        public static Bug UpdateBug(this Bug bug, Bug update)
+        {
+            ValidateBugs(bug, update);
+
+            bug = update;
+            bug.UpdateDate = DateTime.Now;
+            return bug;
+        }
+
+        public static Bug SetBugStatusSolved(this Bug bug, BugTrackingSystemContext context)
+            => SetBugStatus(bug, context, "Solved");
+
         public static Bug SetBugStatus(this Bug bug, BugTrackingSystemContext context, string statusName)
         {
             ValidateContextAndBug(context, bug);
@@ -49,6 +61,7 @@ namespace BugTrackingSystem.Services
                           select s).First();
 
             bug.BugStatus = status ?? throw new ArgumentException($"There is no such status: {statusName}.");
+            bug.UpdateDate = DateTime.Now;
             return bug;
         }
 
@@ -78,6 +91,12 @@ namespace BugTrackingSystem.Services
             {
                 throw new ArgumentNullException(nameof(bug));
             }
+        }
+
+        private static void ValidateBugs(Bug bug, Bug update)
+        {
+            ValidateBug(bug);
+            ValidateBug(update);
         }
 
         private static void ValidateContext(DbContext context)
