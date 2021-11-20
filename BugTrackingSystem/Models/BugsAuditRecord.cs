@@ -9,6 +9,9 @@ namespace BugTrackingSystem.Models
         [Column("id")]
         public int Id { get; set; }
 
+        [Column("bug_id")]
+        public int BugId { get; set; }
+
         [Column("description")]
         public string Description { get; set; }
 
