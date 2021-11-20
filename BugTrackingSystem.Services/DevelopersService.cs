@@ -27,9 +27,9 @@ namespace BugTrackingSystem.Services
             }
 
             var query = from   developer
-                                           in     context.Developers.Include(d => d.Bugs)
-                                           where  developer.Bugs.Count == 0
-                                           select developer;
+                        in     context.Developers.Include(d => d.Bugs)
+                        where  developer.Bugs.Count == 0
+                        select developer;
 
             foreach (var developer in query)
             {

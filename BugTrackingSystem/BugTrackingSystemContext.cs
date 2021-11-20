@@ -20,7 +20,7 @@ namespace BugTrackingSystem
 
         public DbSet<Bug> Bugs { get; set; }
 
-        public DbSet<BugsAuditRecord> BugHistory { get; set; }
+        public DbSet<BugsAuditRecord> BugsAudit { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
