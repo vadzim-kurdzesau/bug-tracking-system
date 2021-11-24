@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BugTrackingSystem.Services\BugTrackingSystem.Services.csproj" />
     <ProjectReference Include="..\BugTrackingSystem\BugTrackingSystem.csproj" />
   </ItemGroup>
 

@@ -23,31 +23,16 @@ namespace BugTrackingSystem.Services
             return bug;
         }
 
-        public static IEnumerable<Bug> GetAvailableUnassignedBugsForDeveloper(this Developer developer,
-            BugTrackingSystemContext context)
+        public static IEnumerable<Bug> GetUnassignedBugs(this Developer developer, BugTrackingSystemContext context)
         {
             ValidateContext(context);
 
-            var unassignedBugs = from b
-                                               in context.Bugs
-                                               where b.Project.Id == developer.Id
-                                               && b.Developer == null
-                                               select b;
-
-            foreach (var bug in unassignedBugs)
-            {
-                yield return bug;
-            }
-        }
-
-        public static IEnumerable<Bug> GetUnassignedBugs(this BugTrackingSystemContext context)
-        {
-            ValidateContext(context);
-
-            var unassignedBugs = from   b
-                                               in     context.Bugs 
-                                               where  b.Developer == null 
-                                               select b;
+            var unassignedBugs =   from p
+                                                    in developer.Projects
+                                                  join b in context.Bugs
+                                                    on p.Id equals b.ProjectId
+                                                 where b.DeveloperId is null
+                                                select b;
 
             foreach (var bug in unassignedBugs)
             {
@@ -72,9 +57,9 @@ namespace BugTrackingSystem.Services
             ValidateContextAndBug(context, bug);
             ValidateStatusName(statusName);
 
-            var status = (from   s 
-                          in     context.BugStatuses 
-                          where  s.Status == statusName
+            var status = (  from s 
+                              in context.BugStatuses 
+                           where s.Status == statusName
                           select s).First();
 
             bug.BugStatus = status ?? throw new ArgumentException($"There is no such status: {statusName}.");
@@ -87,9 +72,9 @@ namespace BugTrackingSystem.Services
             ValidateContextAndBug(context, bug);
             context.SaveChanges();
 
-            var record = (from   r
-                          in     context.BugsAudit
-                          where  r.BugId == bug.Id
+            var record = (  from r
+                              in context.BugsAudit
+                           where r.BugId == bug.Id
                           select r).Last();
 
             record.DeveloperMessage = message;
