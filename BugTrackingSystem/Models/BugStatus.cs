@@ -15,9 +15,6 @@ namespace BugTrackingSystem.Models
         [Column("description")]
         public string Description { get; set; }
 
-        public ICollection<Bug> Bugs { get; set; }
-
-        public BugStatus()
-            => this.Bugs = new List<Bug>();
+        public ICollection<Bug> Bugs { get; set; } = new List<Bug>();
     }
 }

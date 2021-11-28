@@ -21,11 +21,8 @@ namespace BugTrackingSystem.Models
         [Column("phone")]
         public string Phone { get; set; }
 
-        public ICollection<Project> Projects { get; set; }
+        public ICollection<Project> Projects { get; set; } = new List<Project>();
 
-        public ICollection<Bug> Bugs { get; set; }
-
-        public Developer()
-            => (this.Projects, this.Bugs) = (new List<Project>(), new List<Bug>());
+        public ICollection<Bug> Bugs { get; set; } = new List<Bug>();
     }
 }
