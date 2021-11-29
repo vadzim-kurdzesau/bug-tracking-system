@@ -1,4 +1,5 @@
-﻿CREATE TABLE [dbo].[projects_developers] (
+﻿-- todo: believe we agreed that this project will be made using code-first approach, let's consider reworking
+CREATE TABLE [dbo].[projects_developers] (
     [id]           INT IDENTITY (1, 1) NOT NULL,
     [project_id]   INT NULL,
     [developer_id] INT NULL,

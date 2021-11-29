@@ -12,6 +12,7 @@ namespace BugTrackingSystem.Services
         {
             ValidateBug(bug);
 
+            //consider creation of the generic extension method for ArgumentNullException validation
             bug.Developer = developer ?? throw new ArgumentNullException(nameof(developer));
             return bug;
         }
@@ -27,15 +28,23 @@ namespace BugTrackingSystem.Services
         {
             ValidateContext(context);
 
-            var unassignedBugs =   from p
-                                                    in developer.Projects
-                                                  join b in context.Bugs
-                                                    on p.Id equals b.ProjectId
-                                                 where b.DeveloperId is null
-                                                select b;
+            // var unassignedBugs =   from p
+            //                                         in developer.Projects
+            //                                       join b in context.Bugs
+            //                                         on p.Id equals b.ProjectId
+            //                                      where b.DeveloperId is null
+            //                                     select b;
+
+            // todo: let's discuss which syntax is preferable 
+            var unassignedBugs = developer
+                                                .Projects
+                                                .SelectMany(p => p.Bugs)
+                                                .Where(b => !b.DeveloperId.HasValue)
+                                                .ToList();
 
             foreach (var bug in unassignedBugs)
             {
+                // todo: let's discuss why yield?
                 yield return bug;
             }
         }
@@ -49,6 +58,7 @@ namespace BugTrackingSystem.Services
             return bug;
         }
 
+        // todo: discuss: having a mixed styles for methods
         public static Bug SetBugStatusSolved(this Bug bug, BugTrackingSystemContext context)
             => SetBugStatus(bug, context, "Solved");
 
@@ -57,10 +67,14 @@ namespace BugTrackingSystem.Services
             ValidateContextAndBug(context, bug);
             ValidateStatusName(statusName);
 
-            var status = (  from s 
-                              in context.BugStatuses 
-                           where s.Status == statusName
-                          select s).First();
+            // var status = (  from s 
+            //                   in context.BugStatuses 
+            //                where s.Status == statusName
+            //               select s).First();
+            
+            var status = context
+                            .BugStatuses
+                            .First(s => s.Status == statusName);
 
             bug.BugStatus = status ?? throw new ArgumentException($"There is no such status: {statusName}.");
             bug.UpdateDate = DateTime.Now;
@@ -89,10 +103,7 @@ namespace BugTrackingSystem.Services
 
         private static void ValidateBug(Bug bug)
         {
-            if (bug is null)
-            {
-                throw new ArgumentNullException(nameof(bug));
-            }
+            bug = bug ?? throw new ArgumentNullException(nameof(bug));
         }
 
         private static void ValidateBugs(Bug bug, Bug update)

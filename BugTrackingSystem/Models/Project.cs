@@ -16,14 +16,8 @@ namespace BugTrackingSystem.Models
         [Column("start_date")]
         public DateTime StartDate { get; set; }
 
-        public ICollection<Developer> Developers { get; set; }
+        public ICollection<Developer> Developers { get; set; } = new List<Developer>();
 
-        public ICollection<Bug> Bugs { get; set; }
-
-        public Project()
-        {
-            this.Developers = new List<Developer>();
-            this.Bugs = new List<Bug>();
-        }
+        public ICollection<Bug> Bugs { get; set; } = new List<Bug>();
     }
 }
