@@ -6,7 +6,7 @@
     <Name>BugTrackingSystem.Data</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{8796834c-3124-4683-914d-e919736cd01a}</ProjectGuid>
+    <ProjectGuid>{8e941d67-db16-4fef-9d2e-9b1601fee213}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
@@ -62,12 +62,13 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\projects.sql" />
-    <Build Include="dbo\Tables\developers.sql" />
-    <Build Include="dbo\Tables\projects_developers.sql" />
-    <Build Include="dbo\Tables\bug_types.sql" />
-    <Build Include="dbo\Tables\bug_statuses.sql" />
     <Build Include="dbo\Tables\bugs.sql" />
+    <Build Include="dbo\Tables\bug_statuses.sql" />
+    <Build Include="dbo\Tables\bug_types.sql" />
+    <Build Include="dbo\Tables\developers.sql" />
+    <Build Include="dbo\Tables\projects.sql" />
     <Build Include="dbo\Tables\bugs_audit.sql" />
+    <Build Include="dbo\Tables\ProjectDevelopers.sql" />
+    <Build Include="dbo\Tables\__MigrationHistory.sql" />
   </ItemGroup>
 </Project>
