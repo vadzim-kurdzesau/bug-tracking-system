@@ -7,10 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="NUnit" Version="3.13.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TestContexts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BugTrackingSystem.Services\BugTrackingSystem.Services.csproj" />
+    <ProjectReference Include="..\BugTrackingSystem\BugTrackingSystem.csproj" />
   </ItemGroup>
 
 </Project>

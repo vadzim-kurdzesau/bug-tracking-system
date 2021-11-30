@@ -11,7 +11,7 @@ namespace BugTrackingSystem.Models
         public int Id { get; set; }
 
         [Column("first_name", TypeName = "NVARCHAR")]
-        [MaxLength(20)]
+        [MaxLength(30)]
         public string FirstName { get; set; }
 
         [Column("last_name", TypeName = "NVARCHAR")]

@@ -54,7 +54,7 @@
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        first_name = c.String(maxLength: 20),
+                        first_name = c.String(maxLength: 30),
                         last_name = c.String(maxLength: 30),
                         email = c.String(maxLength: 320, unicode: false),
                         phone = c.String(maxLength: 20, unicode: false),
