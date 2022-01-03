@@ -7,8 +7,10 @@ namespace BugTrackingSystem.Models
     [Table("bugs_audit")]
     public class BugsAuditRecord
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Column("bug_id")]
         public int BugId { get; set; }

@@ -8,8 +8,10 @@ namespace BugTrackingSystem.Models
     [Table("projects")]
     public class Project
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Column("name", TypeName = "VARCHAR")]
         [MaxLength(30)]

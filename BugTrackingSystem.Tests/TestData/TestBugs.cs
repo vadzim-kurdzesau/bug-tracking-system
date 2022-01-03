@@ -11,7 +11,6 @@ namespace BugTrackingSystem.Tests.TestData
         {
             yield return new TestCaseData(new Bug()
             {
-                Id = 1,
                 Description = "Configuring volume changes screen brightness.",
                 UpdateDate = new DateTime(2021, 11, 30),
                 BugTypeId = 3,
@@ -21,7 +20,6 @@ namespace BugTrackingSystem.Tests.TestData
 
             yield return new TestCaseData(new Bug()
             {
-                Id = 2,
                 Description = "Unable to close bug after solving.",
                 UpdateDate = new DateTime(2021, 11, 17),
                 BugTypeId = 2,
@@ -31,7 +29,6 @@ namespace BugTrackingSystem.Tests.TestData
 
             yield return new TestCaseData(new Bug()
             {
-                Id = 3,
                 Description = "Can't re-take same book after returning previous.",
                 UpdateDate = new DateTime(2021, 11, 10),
                 BugTypeId = 2,

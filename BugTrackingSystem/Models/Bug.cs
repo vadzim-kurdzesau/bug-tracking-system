@@ -7,8 +7,10 @@ namespace BugTrackingSystem.Models
     [Table("bugs")]
     public class Bug
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Column("description", TypeName = "NVARCHAR")]
         [MaxLength(200)]

@@ -7,8 +7,10 @@ namespace BugTrackingSystem.Models
     [Table("developers")]
     public class Developer
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Column("first_name", TypeName = "NVARCHAR")]
         [MaxLength(30)]

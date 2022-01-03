@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using BugTrackingSystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTrackingSystem.Services
 {
@@ -26,32 +26,42 @@ namespace BugTrackingSystem.Services
         {
             context.ValidateNotNull();
 
-            var unassignedBugs = from p
+            IEnumerable<Bug> unassignedBugs = from p
                                                   in developer.Projects
                                                 join b in context.Bugs
                                                   on p.Id equals b.ProjectId
                                                where b.DeveloperId is null
                                               select b;
 
-            foreach (var bug in unassignedBugs)
-            {
-                // todo: let's discuss why yield?
-                yield return bug;
-            }
+            var res = developer.Projects.SelectMany(p => p.Bugs).Where(b => b.DeveloperId is null);
+
+            return unassignedBugs.ToList();
         }
 
-        public static Bug UpdateBug(this Bug bug, Bug update)
+        public static Bug UpdateBug(this BugTrackingSystemContext context, Bug update)
         {
-            ValidateBugs(bug, update);
+            ValidateContextAndBug(context, update);
 
-            bug = update;
-            bug.UpdateDate = DateTime.Now;
+            var bug = context.Bugs.First(b => b.Id == update.Id);
+            bug.UpdateBug(update);
             return bug;
         }
 
-        // todo: discuss: having a mixed styles for methods
+        private static Bug UpdateBug(this Bug bug, Bug update)
+        {
+            bug.Description = new string(update.Description);
+            bug.UpdateDate = DateTime.Now;
+            bug.BugTypeId = update.BugTypeId;
+            bug.BugStatusId = update.BugStatusId;
+            bug.DeveloperId = update.DeveloperId;
+
+            return bug;
+        }
+
         public static Bug SetBugStatusSolved(this Bug bug, BugTrackingSystemContext context)
-            => SetBugStatus(bug, context, "Solved");
+        {
+            return SetBugStatus(bug, context, "Solved");
+        }
 
         public static Bug SetBugStatus(this Bug bug, BugTrackingSystemContext context, string statusName)
         {
@@ -86,12 +96,6 @@ namespace BugTrackingSystem.Services
         {
             context.ValidateNotNull();
             bug.ValidateNotNull();
-        }
-
-        private static void ValidateBugs(Bug bug, Bug update)
-        {
-            bug.ValidateNotNull();
-            update.ValidateNotNull();
         }
     }
 }

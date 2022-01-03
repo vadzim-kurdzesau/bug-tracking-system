@@ -11,9 +11,9 @@ namespace BugTrackingSystem.Demo
         {
             ConfigurationManager configuration = new ConfigurationManager();
 
-            using BugTrackingSystemContext dataBase = new BugTrackingSystemContext();
+            //using BugTrackingSystemContext dataBase = new BugTrackingSystemContext(configuration.ConnectionString);
 
-            dataBase.SaveChanges();
+            //dataBase.SaveChanges();
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using BugTrackingSystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTrackingSystem.Services
 {

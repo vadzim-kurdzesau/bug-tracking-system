@@ -13,7 +13,6 @@ namespace BugTrackingSystem.Tests.TestData
         static TestDevelopers()
         {
             Faker = new Faker<Developer>()
-                    .RuleFor(d => d.Id, f => f.IndexFaker)
                     .RuleFor(d => d.FirstName, f => f.Name.FirstName())
                     .RuleFor(d => d.LastName, f => f.Name.LastName())
                     .RuleFor(d => d.Email, f => f.Internet.Email())
