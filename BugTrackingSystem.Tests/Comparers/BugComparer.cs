@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using BugTrackingSystem.Models;
 
-namespace BugTrackingSystem.Tests.Comparators
+namespace BugTrackingSystem.Tests.Comparers
 {
-    internal class BugComparator : IEqualityComparer<Bug>
+    internal class BugComparer : IEqualityComparer<Bug>
     {
         public bool Equals(Bug x, Bug y)
         {

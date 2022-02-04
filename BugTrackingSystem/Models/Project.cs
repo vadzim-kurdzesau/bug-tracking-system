@@ -8,10 +8,8 @@ namespace BugTrackingSystem.Models
     [Table("projects")]
     public class Project
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         [Column("name", TypeName = "VARCHAR")]
         [MaxLength(30)]
@@ -20,8 +18,8 @@ namespace BugTrackingSystem.Models
         [Column("start_date")]
         public DateTime StartDate { get; set; }
 
-        public virtual ICollection<Developer> Developers { get; set; }
+        public ICollection<Developer> Developers { get; set; }
 
-        public virtual ICollection<Bug> Bugs { get; set; }
+        public ICollection<Bug> Bugs { get; set; }
     }
 }

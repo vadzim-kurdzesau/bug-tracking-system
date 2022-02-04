@@ -25,20 +25,5 @@ namespace BugTrackingSystem
         public DbSet<Bug> Bugs { get; set; }
 
         public DbSet<BugsAuditRecord> BugsAudit { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BugTrackingSystem");
-            }
-        }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Project>().Property(p => p.Id).UseIdentityColumn();
-
-        //    base.OnModelCreating(modelBuilder);
-        //}
     }
 }

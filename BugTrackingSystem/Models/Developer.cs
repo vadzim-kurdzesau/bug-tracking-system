@@ -7,16 +7,14 @@ namespace BugTrackingSystem.Models
     [Table("developers")]
     public class Developer
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
-        [Column("first_name", TypeName = "NVARCHAR")]
+        [Column("first_name")]
         [MaxLength(30)]
         public string FirstName { get; set; }
 
-        [Column("last_name", TypeName = "NVARCHAR")]
+        [Column("last_name")]
         [MaxLength(30)]
         public string LastName { get; set; }
 
@@ -28,8 +26,8 @@ namespace BugTrackingSystem.Models
         [MaxLength(20)]
         public string Phone { get; set; }
 
-        public virtual ICollection<Project> Projects { get; set; }
+        public ICollection<Project> Projects { get; set; }
 
-        public virtual ICollection<Bug> Bugs { get; set; }
+        public ICollection<Bug> Bugs { get; set; }
     }
 }

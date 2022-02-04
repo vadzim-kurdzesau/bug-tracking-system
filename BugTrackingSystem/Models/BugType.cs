@@ -7,19 +7,17 @@ namespace BugTrackingSystem.Models
     [Table("bug_types")]
     public class BugType
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
-        [Column("type", TypeName = "NVARCHAR")]
+        [Column("type")]
         [MaxLength(20)]
         public string Type { get; set; }
 
-        [Column("description", TypeName = "NVARCHAR")]
+        [Column("description")]
         [MaxLength(100)]
         public string Description { get; set; }
 
-        public virtual ICollection<Bug> Bugs { get; set; }
+        public ICollection<Bug> Bugs { get; set; }
     }
 }
