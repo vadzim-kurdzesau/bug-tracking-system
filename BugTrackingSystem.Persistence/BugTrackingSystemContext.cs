@@ -22,12 +22,6 @@ namespace BugTrackingSystem.Persistence
 
         public DbSet<BugsAuditRecord> BugsAudit { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            Database.EnsureCreated();
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
