@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BugTrackingSystem.Models
+namespace BugTrackingSystem.Persistence.Models
 {
     [Table("dbo.bugs")]
     public class Bug

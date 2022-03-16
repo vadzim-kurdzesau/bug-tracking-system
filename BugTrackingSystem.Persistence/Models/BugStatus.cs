@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BugTrackingSystem.Models
+namespace BugTrackingSystem.Persistence.Models
 {
     [Table("bug_statuses")]
     public class BugStatus

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using BugTrackingSystem.Models;
+using BugTrackingSystem.Persistence;
 
 namespace BugTrackingSystem.Demo
 {

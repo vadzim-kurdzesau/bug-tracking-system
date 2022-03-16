@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using BugTrackingSystem.Models;
+using BugTrackingSystem.Persistence;
+using BugTrackingSystem.Persistence.Models;
 
 namespace BugTrackingSystem.Services
 {

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BugTrackingSystem\BugTrackingSystem.csproj" />
+    <ProjectReference Include="..\BugTrackingSystem.Persistence\BugTrackingSystem.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

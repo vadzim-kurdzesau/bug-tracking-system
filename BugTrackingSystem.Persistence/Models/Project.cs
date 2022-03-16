@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BugTrackingSystem.Models
+namespace BugTrackingSystem.Persistence.Models
 {
     [Table("dbo.projects")]
     public class Project

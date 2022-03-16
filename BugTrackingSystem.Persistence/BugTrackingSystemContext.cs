@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using BugTrackingSystem.Models;
+using BugTrackingSystem.Persistence.Models;
 
-namespace BugTrackingSystem
+namespace BugTrackingSystem.Persistence
 {
     public class BugTrackingSystemContext : DbContext
     {
