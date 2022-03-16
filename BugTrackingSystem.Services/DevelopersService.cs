@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using BugTrackingSystem.Persistence;
 using BugTrackingSystem.Persistence.Models;
+using BugTrackingSystem.Services.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace BugTrackingSystem.Services
@@ -10,10 +10,7 @@ namespace BugTrackingSystem.Services
     {
         public static IQueryable<Developer> GetUnassignedDevelopers(this BugTrackingSystemContext context)
         {
-            if (context is null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            context.ValidateNotNull();
 
             var query =   from developer
                             in context.Developers.Include(d => d.Bugs)
