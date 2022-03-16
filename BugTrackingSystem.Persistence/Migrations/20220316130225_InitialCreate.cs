@@ -121,7 +121,7 @@ namespace BugTrackingSystem.Persistence.Migrations
                     bug_status_id = table.Column<int>(type: "int", nullable: false),
                     project_id = table.Column<int>(type: "int", nullable: false),
                     developer_id = table.Column<int>(type: "int", nullable: true),
-                    developer_message = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    developer_message = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {

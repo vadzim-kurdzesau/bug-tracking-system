@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTrackingSystem.Persistence.Models
@@ -11,6 +12,7 @@ namespace BugTrackingSystem.Persistence.Models
         public int Id { get; set; }
 
         [Column("name", TypeName = "VARCHAR(30)")]
+        [Required]
         public string Name { get; set; }
 
         [Column("start_date")]
