@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BugTrackingSystem.Services.Extensions
+namespace BugTrackingSystem.Services
 {
     internal static class InputValidation
     {
