@@ -10,7 +10,7 @@ namespace BugTrackingSystem.Persistence.Models
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("name")]
+        [Column("name", TypeName = "VARCHAR(30)")]
         public string Name { get; set; }
 
         [Column("start_date")]

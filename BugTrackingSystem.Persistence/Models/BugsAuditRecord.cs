@@ -12,7 +12,7 @@ namespace BugTrackingSystem.Persistence.Models
         [Column("bug_id")]
         public int BugId { get; set; }
 
-        [Column("description")]
+        [Column("description", TypeName = "NVARCHAR(200)")]
         public string Description { get; set; }
 
         [Column("update_date")]

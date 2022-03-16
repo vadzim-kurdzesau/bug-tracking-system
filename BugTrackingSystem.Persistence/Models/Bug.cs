@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTrackingSystem.Persistence.Models
@@ -9,7 +10,7 @@ namespace BugTrackingSystem.Persistence.Models
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("description")]
+        [Column("description", TypeName = "NVARCHAR(200)")]
         public string Description { get; set; }
 
         [Column("update_date")]

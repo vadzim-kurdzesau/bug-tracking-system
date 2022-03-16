@@ -9,16 +9,16 @@ namespace BugTrackingSystem.Persistence.Models
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("first_name")]
+        [Column("first_name", TypeName = "NVARCHAR(20)")]
         public string FirstName { get; set; }
 
-        [Column("last_name")]
+        [Column("last_name", TypeName = "NVARCHAR(30)")]
         public string LastName { get; set; }
 
-        [Column("email")]
+        [Column("email", TypeName = "NVARCHAR(320)")]
         public string Email { get; set; }
 
-        [Column("phone")]
+        [Column("phone", TypeName = "NVARCHAR(20)")]
         public string Phone { get; set; }
 
         public ICollection<Project> Projects { get; set; } = new List<Project>();

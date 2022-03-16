@@ -9,10 +9,10 @@ namespace BugTrackingSystem.Persistence.Models
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("status")]
+        [Column("status", TypeName = "NVARCHAR(20)")]
         public string Status { get; set; }
 
-        [Column("description")]
+        [Column("description", TypeName = "NVARCHAR(100)")]
         public string Description { get; set; }
 
         public ICollection<Bug> Bugs { get; set; } = new List<Bug>();
