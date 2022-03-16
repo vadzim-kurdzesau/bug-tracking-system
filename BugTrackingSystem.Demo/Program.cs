@@ -1,7 +1,5 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using BugTrackingSystem.Persistence;
+﻿using BugTrackingSystem.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTrackingSystem.Demo
 {
@@ -11,7 +9,10 @@ namespace BugTrackingSystem.Demo
         {
             ConfigurationManager configuration = new ConfigurationManager();
 
-            using BugTrackingSystemContext dataBase = new BugTrackingSystemContext(configuration.ConnectionString);
+            var dbOptions = new DbContextOptionsBuilder<BugTrackingSystemContext>()
+                .UseSqlServer(configuration.ConnectionString).Options;
+
+            using BugTrackingSystemContext dataBase = new BugTrackingSystemContext(dbOptions);
 
             dataBase.SaveChanges();
         }
