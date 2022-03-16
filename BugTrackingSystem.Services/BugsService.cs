@@ -35,8 +35,6 @@ namespace BugTrackingSystem.Services
                                                where b.DeveloperId is null
                                               select b;
 
-            var res = developer.Projects.SelectMany(p => p.Bugs).Where(b => b.DeveloperId is null);
-
             return unassignedBugs.ToList();
         }
 
