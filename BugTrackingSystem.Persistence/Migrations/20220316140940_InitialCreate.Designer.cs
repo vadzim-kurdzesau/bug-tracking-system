@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BugTrackingSystem.Persistence.Migrations
 {
     [DbContext(typeof(BugTrackingSystemContext))]
-    [Migration("20220316130225_InitialCreate")]
+    [Migration("20220316140940_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,7 @@ namespace BugTrackingSystem.Persistence.Migrations
                         .HasColumnName("bug_type_id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(200)")
                         .HasColumnName("description");
 
@@ -67,7 +68,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("dbo.bugs");
+                    b.ToTable("bugs");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.BugsAuditRecord", b =>
@@ -92,6 +93,7 @@ namespace BugTrackingSystem.Persistence.Migrations
                         .HasColumnName("bug_type_id");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(200)")
                         .HasColumnName("description");
 
@@ -121,7 +123,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("dbo.bugs_audit");
+                    b.ToTable("bugs_audit");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.BugStatus", b =>
@@ -134,10 +136,12 @@ namespace BugTrackingSystem.Persistence.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(100)")
                         .HasColumnName("description");
 
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(20)")
                         .HasColumnName("status");
 
@@ -156,16 +160,18 @@ namespace BugTrackingSystem.Persistence.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(100)")
                         .HasColumnName("description");
 
                     b.Property<string>("Type")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(20)")
                         .HasColumnName("type");
 
                     b.HasKey("Id");
 
-                    b.ToTable("dbo.bug_types");
+                    b.ToTable("bug_types");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.Developer", b =>
@@ -178,24 +184,28 @@ namespace BugTrackingSystem.Persistence.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(320)")
                         .HasColumnName("email");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(20)")
                         .HasColumnName("first_name");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(30)")
                         .HasColumnName("last_name");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("NVARCHAR(20)")
                         .HasColumnName("phone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("dbo.developers");
+                    b.ToTable("developers");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.Project", b =>
@@ -208,6 +218,7 @@ namespace BugTrackingSystem.Persistence.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("VARCHAR(30)")
                         .HasColumnName("name");
 
@@ -217,7 +228,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("dbo.projects");
+                    b.ToTable("projects");
                 });
 
             modelBuilder.Entity("projects_developers", b =>

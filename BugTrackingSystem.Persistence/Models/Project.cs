@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTrackingSystem.Persistence.Models
 {
-    [Table("dbo.projects")]
+    [Table("projects")]
     public class Project
     {
         [Column("id")]

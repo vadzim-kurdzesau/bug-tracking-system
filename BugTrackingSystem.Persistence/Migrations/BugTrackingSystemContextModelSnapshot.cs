@@ -66,7 +66,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("dbo.bugs");
+                    b.ToTable("bugs");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.BugsAuditRecord", b =>
@@ -121,7 +121,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("dbo.bugs_audit");
+                    b.ToTable("bugs_audit");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.BugStatus", b =>
@@ -169,7 +169,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("dbo.bug_types");
+                    b.ToTable("bug_types");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.Developer", b =>
@@ -203,7 +203,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("dbo.developers");
+                    b.ToTable("developers");
                 });
 
             modelBuilder.Entity("BugTrackingSystem.Persistence.Models.Project", b =>
@@ -226,7 +226,7 @@ namespace BugTrackingSystem.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("dbo.projects");
+                    b.ToTable("projects");
                 });
 
             modelBuilder.Entity("projects_developers", b =>
