@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using BugTrackingSystem.Persistence;
 using BugTrackingSystem.Persistence.Models;
-using BugTrackingSystem.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace BugTrackingSystem.Services
