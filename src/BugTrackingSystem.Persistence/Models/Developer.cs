@@ -26,6 +26,9 @@ namespace BugTrackingSystem.Persistence.Models
         [Required]
         public string Phone { get; set; }
 
+        [NotMapped]
+        public string FullName => $"{this.FirstName} {this.LastName}";
+
         public ICollection<Project> Projects { get; set; } = new List<Project>();
 
         public ICollection<Bug> Bugs { get; set; } = new List<Bug>();
