@@ -10,17 +10,17 @@ namespace BugTrackingSystem.Persistence
         {
         }
 
-        public DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
 
-        public DbSet<Developer> Developers { get; set; }
+        public virtual DbSet<Developer> Developers { get; set; }
 
-        public DbSet<BugType> BugTypes { get; set; }
+        public virtual DbSet<BugType> BugTypes { get; set; }
 
-        public DbSet<BugStatus> BugStatuses { get; set; }
+        public virtual DbSet<BugStatus> BugStatuses { get; set; }
 
-        public DbSet<Bug> Bugs { get; set; }
+        public virtual DbSet<Bug> Bugs { get; set; }
 
-        public DbSet<BugsAuditRecord> BugsAudit { get; set; }
+        public virtual DbSet<BugsAuditRecord> BugsAudit { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

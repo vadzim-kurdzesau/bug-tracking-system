@@ -11,6 +11,10 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BugTrackingSystem.Data", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTrackingSystem.Web", "src\BugTrackingSystem.Web\BugTrackingSystem.Web.csproj", "{1DD733B4-99C0-4FFB-AD92-164C4AEA858C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E2E25BFF-EFD8-4E00-9F23-46171A28D229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTrackingSystem.Services.Tests", "test\BugTrackingSystem.Services.Tests\BugTrackingSystem.Services.Tests.csproj", "{532EF810-FDA5-4FC6-8F72-0B5BE3D9BECF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,11 +39,18 @@ Global
 		{1DD733B4-99C0-4FFB-AD92-164C4AEA858C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DD733B4-99C0-4FFB-AD92-164C4AEA858C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DD733B4-99C0-4FFB-AD92-164C4AEA858C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532EF810-FDA5-4FC6-8F72-0B5BE3D9BECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532EF810-FDA5-4FC6-8F72-0B5BE3D9BECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532EF810-FDA5-4FC6-8F72-0B5BE3D9BECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532EF810-FDA5-4FC6-8F72-0B5BE3D9BECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2519989-3439-4A39-A738-2851528746E8}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{532EF810-FDA5-4FC6-8F72-0B5BE3D9BECF} = {E2E25BFF-EFD8-4E00-9F23-46171A28D229}
 	EndGlobalSection
 EndGlobal
